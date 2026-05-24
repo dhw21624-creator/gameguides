@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 
-Sitemap: https://gameguides.pages.dev/sitemap.xml
+Sitemap: https://gameguides-4t7.pages.dev/sitemap.xml
