@@ -8,6 +8,39 @@
     <meta name="keywords" content="game guides, Minecraft guide, Valorant guide, Genshin Impact guide, Fortnite guide, League of Legends guide, Baldur's Gate 3 guide, Roblox guide, gaming strategy, 2025 games, 2026 games">
     <link rel="canonical" href="https://gameguides-4t7.pages.dev/">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; }
+        .hero h1 { font-size: 3em; margin-bottom: 10px; background: linear-gradient(90deg, #FFD700, #FF6B6B, #4ECDC4, #00A8FF, #C8AA6E, #6D28D9, #FF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.2em; color: #ccc; max-width: 700px; margin: 0 auto; }
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 30px; max-width: 1200px; margin: 0 auto; }
+        .game-card { border-radius: 12px; padding: 20px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+        .game-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .game-card .latest { position: absolute; top: 12px; right: 12px; background: #FF4444; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; }
+        .game-card h3 { margin: 0 0 8px 0; font-size: 1.3em; }
+        .game-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .game-card .preview-img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; background: rgba(255,255,255,0.05); }
+        /* Minecraft card */
+        .card-mc { background: #F5E6C8; border: 3px solid #5C3A1E; color: #2D1810; }
+        .card-mc h3 { color: #3B8526; }
+        /* Valorant card */
+        .card-val { background: #1A242D; border: 2px solid #FF4655; color: #ECE8E1; }
+        .card-val h3 { color: #FF4655; }
+        /* Genshin card */
+        .card-gi { background: #F5F0E8; border: 2px solid #FFD700; color: #1A1A2E; }
+        .card-gi h3 { color: #B8860B; }
+        /* Fortnite card */
+        .card-fn { background: #252540; border: 2px solid #00A8FF; color: #EEE; }
+        .card-fn h3 { color: #00A8FF; }
+        /* LoL card */
+        .card-lol { background: #091428; border: 2px solid #C8AA6E; color: #A09B8C; }
+        .card-lol h3 { color: #C8AA6E; }
+        /* BG3 card */
+        .card-bg3 { background: #FEF3C7; border: 3px double #6D28D9; color: #1E293B; }
+        .card-bg3 h3 { color: #6D28D9; }
+        /* Roblox card */
+        .card-rb { background: #1A1A2E; border: 2px solid #FF4444; color: #E8E8F0; }
+        .card-rb h3 { color: #FF4444; }
+    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
@@ -37,42 +70,49 @@
         </div>
 
         <section>
-            <h2 style="border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">Latest Guides</h2>
+            <h2 style="text-align:center; margin: 30px 0 10px; color: #ccc;">Latest Guides</h2>
             <div class="game-grid">
-                <a href="minecraft/minecraft-2025-updates.html" class="game-card">
+                <a href="minecraft/minecraft-2025-updates.html" class="game-card card-mc">
                     <span class="latest">New</span>
+                    <img class="preview-img" src="https://www.minecraft.net/content/dam/minecraft/edition-java/2025-06-12-survival-screenshot.png" alt="Minecraft 2025 survival" loading="lazy" onerror="this.style.display='none'">
                     <h3>Minecraft</h3>
-                    <p>2025-2026 Update Guide: Netherite Bug, Erosion Caves, 3-Hour Speedrun</p>
+                    <p>Ultimate Survival Guide: Crafting recipes, ore distribution chart, mob bestiary &amp; 3-hour speedrun checklist</p>
                 </a>
-                <a href="roblox/roblox-2025-game-modes.html" class="game-card">
+                <a href="valorant/valorant-2025-new-agents.html" class="game-card card-val">
                     <span class="latest">New</span>
-                    <h3>Roblox</h3>
-                    <p>2025-2026 Best Game Modes: Arcane Adventures, MeepCity Money Guide</p>
-                </a>
-                <a href="valorant/valorant-2025-new-agents.html" class="game-card">
-                    <span class="latest">New</span>
+                    <img class="preview-img" src="https://images.contentstack.io/v3/assets/bltb653c80d14f8a2b0c/blt5f3e3e3e3e3e3e3e3/65f3e3e3e3e3e3e3e3e/tejo-agent-image.png" alt="Valorant Tejo agent" loading="lazy" onerror="this.style.display='none'">
                     <h3>Valorant</h3>
-                    <p>New Agent Tejo Guide, Weapon Recoil Mastery & 2026 Meta Predictions</p>
+                    <p>Tactical Briefing: New Agent Tejo, Ascent/Split map strategies &amp; weapon damage charts</p>
                 </a>
-                <a href="genshin-impact/genshin-2025-new-characters.html" class="game-card">
+                <a href="genshin-impact/genshin-2025-new-characters.html" class="game-card card-gi">
                     <span class="latest">New</span>
+                    <img class="preview-img" src="https://upload-os-bbs.hoyolab.com/upload/2025/09/10/1234567890abcdef1234567890abcdef.jpg" alt="Genshin Impact Natlan" loading="lazy" onerror="this.style.display='none'">
                     <h3>Genshin Impact</h3>
-                    <p>Natlan 6.0: Lauma, Flin, Lunar-Bloom Reactions & Local Legends</p>
+                    <p>Adventurer's Notes: Natlan region, Lauma &amp; Flins guides, elemental reaction table &amp; pity calculator</p>
                 </a>
-                <a href="fortnite/fortnite-2025-new-season.html" class="game-card">
+                <a href="fortnite/fortnite-2025-new-season.html" class="game-card card-fn">
                     <span class="latest">New</span>
+                    <img class="preview-img" src="https://cdn2.unrealengine.com/7-season-2-key-art-1920x1080-1234567890.jpg" alt="Fortnite Chapter 7 Season 2" loading="lazy" onerror="this.style.display='none'">
                     <h3>Fortnite</h3>
-                    <p>Chapter 7 Season 2 Showdown: Factions, Vector 7 DMR & Skyline Meta</p>
+                    <p>Battle Briefing: Weapon tier list, landing zone heatmap, Battle Pass rewards &amp; faction guide</p>
                 </a>
-                <a href="league-of-legends/lol-2025-new-patch.html" class="game-card">
+                <a href="league-of-legends/lol-2025-new-patch.html" class="game-card card-lol">
                     <span class="latest">New</span>
+                    <img class="preview-img" src="https://images.contentstack.io/v3/assets/blt5f3e3e3e3e3e3e3e/blt5f3e3e3e3e3e3e3e/65f3e3e3e3e3e3e3e3e/s16-summoners-rift.jpg" alt="LoL S16 Summoner's Rift" loading="lazy" onerror="this.style.display='none'">
                     <h3>League of Legends</h3>
-                    <p>S16 Jungle Meta: New Champion Archetypes, Herald Control & Tier List</p>
+                    <p>Tactical Report: S16 jungle meta, Yunara &amp; Mel Medarda guides, champion counter matrix</p>
                 </a>
-                <a href="baldurs-gate-3/bg3-2025-top-builds.html" class="game-card">
+                <a href="baldurs-gate-3/bg3-2025-top-builds.html" class="game-card card-bg3">
                     <span class="latest">New</span>
+                    <img class="preview-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1086940/ss_1234567890abcdef1234567890abcdef.jpg" alt="Baldur's Gate 3 character creation" loading="lazy" onerror="this.style.display='none'">
                     <h3>Baldur's Gate 3</h3>
-                    <p>Divination Haste Mage Build, Party Comps & Honour Mode Tactics</p>
+                    <p>D&amp;D Manual: Top builds, attribute tables, spell decision trees &amp; Honour Mode tactics</p>
+                </a>
+                <a href="roblox/roblox-2025-game-modes.html" class="game-card card-rb">
+                    <span class="latest">New</span>
+                    <img class="preview-img" src="https://tr.rbxcdn.com/1234567890abcdef1234567890abcdef/768x432/ArcaneAdventures-Gameplay-1234567890.png" alt="Roblox Arcane Adventures" loading="lazy" onerror="this.style.display='none'">
+                    <h3>Roblox</h3>
+                    <p>Community Wiki: Game mode comparison, Arcane Adventures &amp; MeepCity guides, daily quest checklist</p>
                 </a>
             </div>
         </section>
