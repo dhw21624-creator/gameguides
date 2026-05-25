@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback - GameGuides Admin</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>GameGuides</h2>
+    <p>Admin Panel</p>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html"><span class="icon">&#9632;</span> <span>Dashboard</span></a>
+    <a href="content.html"><span class="icon">&#9776;</span> <span>Content</span></a>
+    <a href="analytics.html"><span class="icon">&#9733;</span> <span>Analytics</span></a>
+    <a href="feedback.html" class="active"><span class="icon">&#9993;</span> <span>Feedback</span></a>
+    <a href="../index.html" target="_blank"><span class="icon">&#8599;</span> <span>View Site</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    &copy; 2026 GameGuides<br>
+    <a href="../index.html">gameguides-4t7.pages.dev</a>
+  </div>
+</aside>
+
+<main class="main-content">
+  <div class="page-header">
+    <h1>User Feedback</h1>
+    <p>View and manage feedback submitted by site visitors.</p>
+  </div>
+
+  <div class="card">
+    <div class="toolbar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search feedback...">
+      <select class="filter-select" id="filterStatus">
+        <option value="">All Status</option>
+        <option value="pending">Pending</option>
+        <option value="resolved">Resolved</option>
+      </select>
+      <button class="btn btn-primary" onclick="refresh()">&#8635; Refresh</button>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="feedbackBody"></tbody>
+      </table>
+    </div>
+    <div class="card-body" id="resultCount" style="padding:12px 24px; color:var(--text-secondary); font-size:13px;"></div>
+  </div>
+</main>
+
+<div class="reply-modal" id="replyModal">
+  <div class="reply-box">
+    <h3>Reply to Feedback</h3>
+    <p id="replyTo">To: <span></span></p>
+    <div class="form-group">
+      <label>Your Reply</label>
+      <textarea id="replyText" placeholder="Type your response..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeReply()">Cancel</button>
+      <button class="btn btn-primary" onclick="sendReply()">Send Reply</button>
+    </div>
+    <button class="btn-close" onclick="closeReply()">&times;</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let feedbacks = [];
+
+async function loadFeedback() {
+  try {
+    const res = await fetch('data/feedback-data.json');
+    feedbacks = await res.json();
+    render();
+  } catch(e) {
+    feedbacks = [];
+    render();
+  }
+}
+
+function render() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const statusFilter = document.getElementById('filterStatus').value;
+
+  let filtered = feedbacks.filter(f => {
+    const matchSearch = !search || 
+      f.name.toLowerCase().includes(search) ||
+      f.email.toLowerCase().includes(search) ||
+      f.message.toLowerCase().includes(search);
+    const matchStatus = !statusFilter || f.status === statusFilter;
+    return matchSearch && matchStatus;
+  });
+
+  filtered.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  const tbody = document.getElementById('feedbackBody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" class="empty-state">
+      <div class="empty-icon">&#9993;</div>
+      <h3>No feedback yet</h3>
+      <p>User feedback will appear here once submitted.</p>
+    </td></tr>`;
+  } else {
+    tbody.innerHTML = filtered.map(f => `
+      <tr>
+        <td>${f.id}</td>
+        <td><strong>${f.name}</strong></td>
+        <td>${f.email}</td>
+        <td style="max-width:300px;white-space:pre-wrap;font-size:13px;">${f.message}</td>
+        <td>${f.date}</td>
+        <td><span class="badge ${f.status}">${f.status === 'resolved' ? 'Resolved' : 'Pending'}</span></td>
+        <td>
+          <button class="btn btn-outline btn-sm" onclick="toggleStatus(${f.id})" title="Toggle Status">&#8635;</button>
+          <button class="btn btn-primary btn-sm" onclick="openReply(${f.id})" title="Reply">&#9993;</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteFeedback(${f.id})" title="Delete">&#10005;</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${feedbacks.length} feedback entries`;
+}
+
+function toggleStatus(id) {
+  const f = feedbacks.find(f => f.id === id);
+  if (!f) return;
+  f.status = f.status === 'pending' ? 'resolved' : 'pending';
+  save();
+  showToast(`Feedback #${id} marked as ${f.status}`);
+}
+
+function deleteFeedback(id) {
+  if (!confirm(`Delete feedback #${id}?`)) return;
+  feedbacks = feedbacks.filter(f => f.id !== id);
+  save();
+  showToast(`Feedback #${id} deleted`);
+}
+
+let currentReplyId = null;
+function openReply(id) {
+  const f = feedbacks.find(f => f.id === id);
+  if (!f) return;
+  currentReplyId = id;
+  document.getElementById('replyTo').innerHTML = `To: <strong>${f.name}</strong> (${f.email})`;
+  document.getElementById('replyText').value = '';
+  document.getElementById('replyModal').classList.add('show');
+}
+
+function closeReply() {
+  document.getElementById('replyModal').classList.remove('show');
+  currentReplyId = null;
+}
+
+function sendReply() {
+  const text = document.getElementById('replyText').value.trim();
+  if (!text) return alert('Please enter reply message');
+  const f = feedbacks.find(f => f.id === currentReplyId);
+  if (!f) return;
+  alert(`Reply sent to ${f.email}:\n\n${text}`);
+  f.status = 'resolved';
+  save();
+  closeReply();
+  showToast(`Reply sent to ${f.name}`);
+}
+
+async function save() {
+  try {
+    await fetch('data/feedback-data.json', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(feedbacks, null, 2)
+    });
+  } catch(e) {
+    console.error('Save failed:', e);
+  }
+}
+
+function refresh() {
+  loadFeedback();
+  showToast('Refreshed');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Event listeners
+document.getElementById('searchInput').addEventListener('input', render);
+document.getElementById('filterStatus').addEventListener('change', render);
+
+// Initial load
+loadFeedback();
+</script>
+
+</body>
+</html>

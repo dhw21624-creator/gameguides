@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - GameGuides Admin</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>GameGuides</h2>
+    <p>Admin Panel</p>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="active"><span class="icon">&#9632;</span> <span>Dashboard</span></a>
+    <a href="content.html"><span class="icon">&#9776;</span> <span>Content</span></a>
+    <a href="analytics.html"><span class="icon">&#9733;</span> <span>Analytics</span></a>
+    <a href="feedback.html"><span class="icon">&#9993;</span> <span>Feedback</span></a>
+    <a href="../index.html" target="_blank"><span class="icon">&#8599;</span> <span>View Site</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    &copy; 2026 GameGuides<br>
+    <a href="../index.html">gameguides-4t7.pages.dev</a>
+  </div>
+</aside>
+
+<main class="main-content">
+  <div class="page-header">
+    <h1>Dashboard</h1>
+    <p>Welcome back! Here's your site overview.</p>
+  </div>
+
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card">
+      <div class="stat-icon blue">&#9998;</div>
+      <div class="stat-value" id="totalArticles">--</div>
+      <div class="stat-label">Total Articles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green">&#9733;</div>
+      <div class="stat-value" id="totalGames">--</div>
+      <div class="stat-label">Games Covered</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon purple">&#9654;</div>
+      <div class="stat-value" id="todayVisits">--</div>
+      <div class="stat-label">Visits Today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon orange">&#36;</div>
+      <div class="stat-value" id="adsenseStatus">--</div>
+      <div class="stat-label">AdSense Status</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Recent Articles</h3>
+      <a href="content.html" class="btn btn-outline btn-sm">View All</a>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Title</th><th>Game</th><th>Status</th><th>Date</th><th>Views</th></tr>
+        </thead>
+        <tbody id="recentArticles"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>Quick Actions</h3></div>
+    <div class="card-body">
+      <div class="quick-actions">
+        <a href="content.html" class="quick-action"><span class="qa-icon">&#9998;</span> Manage Articles</a>
+        <a href="analytics.html" class="quick-action"><span class="qa-icon">&#9733;</span> View Analytics</a>
+        <a href="feedback.html" class="quick-action"><span class="qa-icon">&#9993;</span> Check Feedback</a>
+        <a href="../index.html" target="_blank" class="quick-action"><span class="qa-icon">&#8599;</span> Open Website</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(async function() {
+  const res = await fetch('data/articles.json');
+  const articles = await res.json();
+
+  const published = articles.filter(a => a.status === 'published');
+  const games = [...new Set(articles.map(a => a.game))];
+
+  document.getElementById('totalArticles').textContent = articles.length;
+  document.getElementById('totalGames').textContent = games.length;
+  document.getElementById('todayVisits').textContent = '14,210';
+  document.getElementById('adsenseStatus').textContent = 'Active';
+
+  const recent = published.slice(0, 8);
+  const tbody = document.getElementById('recentArticles');
+  recent.forEach(a => {
+    tbody.innerHTML += `<tr>
+      <td><strong>${a.title}</strong></td>
+      <td>${a.game}</td>
+      <td><span class="badge published">Published</span></td>
+      <td>${a.date}</td>
+      <td>${a.views.toLocaleString()}</td>
+    </tr>`;
+  });
+})();
+</script>
+
+</body>
+</html>

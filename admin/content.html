@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Management - GameGuides Admin</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2>GameGuides</h2>
+    <p>Admin Panel</p>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html"><span class="icon">&#9632;</span> <span>Dashboard</span></a>
+    <a href="content.html" class="active"><span class="icon">&#9776;</span> <span>Content</span></a>
+    <a href="analytics.html"><span class="icon">&#9733;</span> <span>Analytics</span></a>
+    <a href="feedback.html"><span class="icon">&#9993;</span> <span>Feedback</span></a>
+    <a href="../index.html" target="_blank"><span class="icon">&#8599;</span> <span>View Site</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    &copy; 2026 GameGuides<br>
+    <a href="../index.html">gameguides-4t7.pages.dev</a>
+  </div>
+</aside>
+
+<main class="main-content">
+  <div class="page-header">
+    <h1>Content Management</h1>
+    <p>Manage all articles across your game guides.</p>
+  </div>
+
+  <div class="card">
+    <div class="toolbar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search articles by title or game...">
+      <select class="filter-select" id="filterGame">
+        <option value="">All Games</option>
+      </select>
+      <select class="filter-select" id="filterStatus">
+        <option value="">All Status</option>
+        <option value="published">Published</option>
+        <option value="draft">Drafts</option>
+      </select>
+      <select class="filter-select" id="sortBy">
+        <option value="date-desc">Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="views-desc">Most Viewed</option>
+        <option value="views-asc">Least Viewed</option>
+        <option value="title-asc">Title A-Z</option>
+      </select>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Game</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Views</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="articlesBody"></tbody>
+      </table>
+    </div>
+    <div class="card-body" id="resultCount" style="padding:12px 24px; color:var(--text-secondary); font-size:13px;"></div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let articles = [];
+
+(async function init() {
+  const res = await fetch('data/articles.json');
+  articles = await res.json();
+
+  // Populate game filter
+  const games = [...new Set(articles.map(a => a.game))].sort();
+  const gameSelect = document.getElementById('filterGame');
+  games.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g; opt.textContent = g;
+    gameSelect.appendChild(opt);
+  });
+
+  render();
+
+  document.getElementById('searchInput').addEventListener('input', render);
+  document.getElementById('filterGame').addEventListener('change', render);
+  document.getElementById('filterStatus').addEventListener('change', render);
+  document.getElementById('sortBy').addEventListener('change', render);
+})();
+
+function render() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const gameFilter = document.getElementById('filterGame').value;
+  const statusFilter = document.getElementById('filterStatus').value;
+  const sort = document.getElementById('sortBy').value;
+
+  let filtered = articles.filter(a => {
+    const matchSearch = !search || a.title.toLowerCase().includes(search) || a.game.toLowerCase().includes(search);
+    const matchGame = !gameFilter || a.game === gameFilter;
+    const matchStatus = !statusFilter || a.status === statusFilter;
+    return matchSearch && matchGame && matchStatus;
+  });
+
+  // Sort
+  switch(sort) {
+    case 'date-asc': filtered.sort((a,b) => a.date.localeCompare(b.date)); break;
+    case 'date-desc': filtered.sort((a,b) => b.date.localeCompare(a.date)); break;
+    case 'views-desc': filtered.sort((a,b) => b.views - a.views); break;
+    case 'views-asc': filtered.sort((a,b) => a.views - b.views); break;
+    case 'title-asc': filtered.sort((a,b) => a.title.localeCompare(b.title)); break;
+    default: filtered.sort((a,b) => b.date.localeCompare(a.date));
+  }
+
+  const tbody = document.getElementById('articlesBody');
+  tbody.innerHTML = filtered.map(a => `
+    <tr>
+      <td>${a.id}</td>
+      <td><strong>${a.title}</strong>${a.featured ? ' <span style="font-size:11px;color:var(--accent);">&#9733;</span>' : ''}</td>
+      <td>${a.game}</td>
+      <td>${a.category}</td>
+      <td><span class="badge ${a.status}">${a.status === 'published' ? 'Published' : 'Draft'}</span></td>
+      <td>${a.date}</td>
+      <td>${a.views.toLocaleString()}</td>
+      <td>
+        <a href="../games/${a.gameSlug}/" target="_blank" class="btn btn-outline btn-sm" title="View">&#8599;</a>
+        <button class="btn btn-outline btn-sm" onclick="toggleStatus(${a.id})" title="Toggle Status">&#8635;</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteArticle(${a.id})" title="Delete">&#10005;</button>
+      </td>
+    </tr>
+  `).join('');
+
+  document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${articles.length} articles`;
+}
+
+function toggleStatus(id) {
+  const a = articles.find(a => a.id === id);
+  if (!a) return;
+  a.status = a.status === 'published' ? 'draft' : 'published';
+  render();
+  showToast(`Article #${id} marked as ${a.status === 'published' ? 'Published' : 'Draft'}`);
+}
+
+function deleteArticle(id) {
+  if (!confirm(`Delete article #${id}?`)) return;
+  articles = articles.filter(a => a.id !== id);
+  render();
+  showToast(`Article #${id} deleted`);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+
+</body>
+</html>

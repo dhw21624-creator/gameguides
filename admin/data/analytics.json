@@ -1,0 +1,49 @@
+{
+  "pageViews": [
+    {"page":"/games/elden-ring/","title":"Elden Ring Guides","views":45678,"uniqueVisitors":32109,"avgTime":"4:32"},
+    {"page":"/games/genshin-impact/","title":"Genshin Impact Guides","views":43210,"uniqueVisitors":29876,"avgTime":"5:15"},
+    {"page":"/games/zelda-totk/","title":"Zelda: TOTK Guides","views":38901,"uniqueVisitors":26789,"avgTime":"4:48"},
+    {"page":"/games/minecraft/","title":"Minecraft Guides","views":34567,"uniqueVisitors":23456,"avgTime":"3:22"},
+    {"page":"/games/hades-2/","title":"Hades 2 Guides","views":32109,"uniqueVisitors":21098,"avgTime":"3:55"},
+    {"page":"/games/diablo-4/","title":"Diablo 4 Guides","views":29876,"uniqueVisitors":19876,"avgTime":"4:10"},
+    {"page":"/games/palworld/","title":"Palworld Guides","views":26789,"uniqueVisitors":17654,"avgTime":"3:45"},
+    {"page":"/games/cyberpunk-2077/","title":"Cyberpunk 2077 Guides","views":24567,"uniqueVisitors":16543,"avgTime":"4:05"},
+    {"page":"/games/baldurs-gate-3/","title":"Baldur's Gate 3 Guides","views":23456,"uniqueVisitors":15432,"avgTime":"5:30"},
+    {"page":"/games/lethal-company/","title":"Lethal Company Guides","views":21098,"uniqueVisitors":14321,"avgTime":"3:10"},
+    {"page":"/games/stardew-valley/","title":"Stardew Valley Guides","views":18765,"uniqueVisitors":13210,"avgTime":"3:50"},
+    {"page":"/","title":"Homepage","views":56789,"uniqueVisitors":45678,"avgTime":"1:20"}
+  ],
+  "searchKeywords": [
+    {"keyword":"elden ring beginner guide","clicks":2345,"impressions":12000,"ctr":"19.5%"},
+    {"keyword":"genshin impact best team","clicks":1987,"impressions":9800,"ctr":"20.3%"},
+    {"keyword":"zelda totk all shrines","clicks":1876,"impressions":8500,"ctr":"22.1%"},
+    {"keyword":"minecraft redstone guide","clicks":1654,"impressions":7600,"ctr":"21.8%"},
+    {"keyword":"hades 2 early access","clicks":1543,"impressions":7200,"ctr":"21.4%"},
+    {"keyword":"diablo 4 leveling build","clicks":1432,"impressions":6800,"ctr":"21.1%"},
+    {"keyword":"palworld breeding combos","clicks":1321,"impressions":6200,"ctr":"21.3%"},
+    {"keyword":"cyberpunk phantom liberty walkthrough","clicks":1210,"impressions":5800,"ctr":"20.9%"},
+    {"keyword":"baldurs gate 3 best builds","clicks":1098,"impressions":5400,"ctr":"20.3%"},
+    {"keyword":"lethal company monsters guide","clicks":987,"impressions":5000,"ctr":"19.7%"}
+  ],
+  "geoDistribution": [
+    {"country":"United States","visitors":34567,"percentage":"38.2%"},
+    {"country":"United Kingdom","visitors":12345,"percentage":"13.6%"},
+    {"country":"Germany","visitors":8765,"percentage":"9.7%"},
+    {"country":"Japan","visitors":7654,"percentage":"8.5%"},
+    {"country":"Canada","visitors":6543,"percentage":"7.2%"},
+    {"country":"Australia","visitors":5432,"percentage":"6.0%"},
+    {"country":"France","visitors":4321,"percentage":"4.8%"},
+    {"country":"Brazil","visitors":3210,"percentage":"3.5%"},
+    {"country":"South Korea","visitors":2987,"percentage":"3.3%"},
+    {"country":"Other","visitors":4676,"percentage":"5.2%"}
+  ],
+  "dailyVisits": [
+    {"date":"2026-05-19","visits":12340},
+    {"date":"2026-05-20","visits":13450},
+    {"date":"2026-05-21","visits":11890},
+    {"date":"2026-05-22","visits":14560},
+    {"date":"2026-05-23","visitors":15230},
+    {"date":"2026-05-24","visits":16780},
+    {"date":"2026-05-25","visits":14210}
+  ]
+}
