@@ -23,7 +23,62 @@
         .callout { background: #1a0f00; border-left: 4px solid var(--accent); padding: 15px; margin: 15px 0; }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+
+    <style>
+    .game-images-gallery {
+        margin: 30px 0;
+        padding: 20px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+    }
+    .game-images-gallery h3 {
+        color: #ff8800;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+    }
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+    .image-item {
+        background: #222;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #444;
+    }
+    .image-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    .image-caption {
+        padding: 12px;
+        margin: 0;
+        color: #ccc;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    .image-source {
+        padding: 8px 12px;
+        margin: 0;
+        background: #2a2a2a;
+        color: #888;
+        font-size: 0.8em;
+        border-top: 1px solid #444;
+    }
+    @media (max-width: 768px) {
+        .image-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+    </head>
 <body>
     <header>
         <nav>
@@ -50,6 +105,27 @@
     <p>Operator, the battlefield has evolved. Omni-movement changes everything. This manual contains the weapon data, map strategies, and killstreak configurations that separate the top 1% from the rest. Study it. Deploy it. Dominate.</p>
 
     <h2>I. Meta Weapon Analysis (Season 1-3 Data)</h2>
+<div class="game-images-gallery">
+  <h3>📸 Cod Black Ops 6 游戏截图</h3>
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/callofduty/images/1/1a/BO6_Highrise_Map.jpg" alt="Black Ops 6 Highrise Map" loading="lazy">
+      <p class="image-caption"><em>Highrise多人地图 - 狙击点位</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/callofduty/images/4/4a/BO6_Kilo_45_Weapon.jpg" alt="Black Ops 6 Kilo 45 Weapon" loading="lazy">
+      <p class="image-caption"><em>Kilo 45 - 当前赛季Meta武器</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/callofduty/images/7/7a/BO6_Zombies_Mode.jpg" alt="Black Ops 6 Zombies Mode" loading="lazy">
+      <p class="image-caption"><em>僵尸模式新地图</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+  </div>
+</div>
+
 
     <table>
         <tr><th>Weapon</th><th>Class</th><th>Pick Rate</th><th>TTK</th><th>Optimal Range</th></tr>

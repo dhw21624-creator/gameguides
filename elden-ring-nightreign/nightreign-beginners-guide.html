@@ -25,7 +25,62 @@
         .tip-box { background: #1a2810; border: 1px solid #3a5a20; padding: 15px; border-radius: 6px; margin: 15px 0; }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+
+    <style>
+    .game-images-gallery {
+        margin: 30px 0;
+        padding: 20px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+    }
+    .game-images-gallery h3 {
+        color: #ff8800;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+    }
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+    .image-item {
+        background: #222;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #444;
+    }
+    .image-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    .image-caption {
+        padding: 12px;
+        margin: 0;
+        color: #ccc;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    .image-source {
+        padding: 8px 12px;
+        margin: 0;
+        background: #2a2a2a;
+        color: #888;
+        font-size: 0.8em;
+        border-top: 1px solid #444;
+    }
+    @media (max-width: 768px) {
+        .image-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+    </head>
 <body>
     <header>
         <nav>
@@ -56,6 +111,27 @@
     </div>
 
     <h2>I. The Nightreign Loop Explained</h2>
+<div class="game-images-gallery">
+  <h3>📸 Elden Ring 游戏截图</h3>
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/eldenring/images/5/5a/Elden_Ring_DLC_Scene.jpg" alt="Elden Ring DLC Scene" loading="lazy">
+      <p class="image-caption"><em>DLC新区域场景</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/eldenring/images/9/9a/Elden_Ring_Boss.jpg" alt="Elden Ring Boss" loading="lazy">
+      <p class="image-caption"><em>Boss战打法攻略</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/eldenring/images/3/3a/Elden_Ring_Map.jpg" alt="Elden Ring Map" loading="lazy">
+      <p class="image-caption"><em>交界地完整地图</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+  </div>
+</div>
+
     <p>Each run follows a strict rhythm. Understanding this cycle is your first survival lesson:</p>
     <div class="field-journal">
         <p><strong>Land in Limveld</strong> → <strong>Loot &amp; Explore</strong> → <strong>Fight Mini-Bosses &amp; Events</strong> → <strong>Return to Roundtable Hold</strong> (restock, upgrade flasks/weapons) → <strong>Push to Next Area</strong> → <strong>Repeat for 3 Cycles</strong> → <strong>Face the Nightlord</strong></p>

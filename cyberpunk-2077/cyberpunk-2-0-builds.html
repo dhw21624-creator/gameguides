@@ -24,7 +24,62 @@
         .code-block { background: #0a0a18; border: 1px solid #333; padding: 12px; border-radius: 4px; margin: 10px 0; font-family: 'Courier New', monospace; }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+
+    <style>
+    .game-images-gallery {
+        margin: 30px 0;
+        padding: 20px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+    }
+    .game-images-gallery h3 {
+        color: #ff8800;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+    }
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+    .image-item {
+        background: #222;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid #444;
+    }
+    .image-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    .image-caption {
+        padding: 12px;
+        margin: 0;
+        color: #ccc;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    .image-source {
+        padding: 8px 12px;
+        margin: 0;
+        background: #2a2a2a;
+        color: #888;
+        font-size: 0.8em;
+        border-top: 1px solid #444;
+    }
+    @media (max-width: 768px) {
+        .image-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+    </head>
 <body>
     <header>
         <nav>
@@ -51,6 +106,27 @@
     <p>The 2.0 update rewired everything. New perk trees, overhauled cyberware, and the Relic skill tree from Phantom Liberty demand fresh approaches. These five builds have been field-tested through Don't Fear the Reaper and every ending. Chrome up, choom.</p>
 
     <h2>I. Leveling Roadmap (1-60)</h2>
+<div class="game-images-gallery">
+  <h3>📸 Cyberpunk 2077 游戏截图</h3>
+  <div class="image-grid">
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/cyberpunk/images/7/7a/Cyberpunk_2_0_Screenshot.jpg" alt="Cyberpunk 2077 2.0 Screenshot" loading="lazy">
+      <p class="image-caption"><em>2.0版本游戏截图</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/cyberpunk/images/2/2a/Cyberpunk_Weapons.jpg" alt="Cyberpunk 2077 Weapons" loading="lazy">
+      <p class="image-caption"><em>武器系统升级</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+    <div class="image-item">
+      <img src="https://static.wikia.nocookie.net/cyberpunk/images/8/8a/Cyberpunk_Night_City.jpg" alt="Cyberpunk 2077 Night City" loading="lazy">
+      <p class="image-caption"><em>夜之城区域地图</em></p>
+      <p class="image-source">来源: 游戏官方Wiki | 版权: © 游戏开发商</p>
+    </div>
+  </div>
+</div>
+
     <table>
         <tr><th>Phase</th><th>Levels</th><th>Focus</th></tr>
         <tr><td>Foundation</td><td>1-15</td><td>Reflexes 10+, Tech 8+, Cool 6+. Get Sandevistan early.</td></tr>
