@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Ore Level Helper — GameGuides</title>
+    <meta name="description" content="Find the generally recommended Y-level mining range for every ore in Minecraft. Quick lookup tool with safety tips.">
+    <link rel="canonical" href="https://gameguides-4t7.pages.dev/tools/minecraft-ore-level-helper.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tool-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 2.5rem;
+        }
+        .tool-container h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.4px;
+            margin-bottom: 0.4rem;
+        }
+        .tool-container .tool-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .tool-card label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .tool-card select {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: inherit;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f07c3c' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.9rem center;
+            padding-right: 2.4rem;
+        }
+        .tool-card select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .result-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.4rem 1.6rem;
+            margin-top: 1.2rem;
+            display: none;
+        }
+        .result-box.visible { display: block; }
+        .result-box .ore-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .result-box .level-range {
+            font-size: 2rem;
+            font-weight: 750;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.3rem;
+        }
+        .result-box .level-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.9rem;
+        }
+        .result-box .ore-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .result-box .safety-tip {
+            font-size: 0.82rem;
+            color: var(--red);
+            font-weight: 600;
+            padding: 0.5rem 0.7rem;
+            background: rgba(224,85,96,0.08);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--red);
+            margin-bottom: 0.9rem;
+        }
+        .result-box .related-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .result-box .related-links a {
+            font-size: 0.78rem;
+            color: var(--accent);
+            padding: 0.3rem 0.7rem;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .result-box .related-links a:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+        }
+        .disclaimer-box {
+            background: rgba(240,124,60,0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.1rem;
+            margin-top: 1.5rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .disclaimer-box strong { color: var(--accent); }
+    </style>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Minecraft Ore Level Helper — GameGuides">
+    <meta property="og:description" content="Find the generally recommended Y-level mining range for every ore in Minecraft. Quick lookup tool with safety tips.">
+    <meta property="og:url" content="https://gameguides-4t7.pages.dev/tools/minecraft-ore-level-helper.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+    <meta property="og:site_name" content="GameGuides">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minecraft Ore Level Helper — GameGuides">
+    <meta name="twitter:description" content="Find the generally recommended Y-level mining range for every ore in Minecraft. Quick lookup tool with safety tips.">
+    <meta name="twitter:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Minecraft Ore Level Helper — GameGuides",
+  "description": "Find the generally recommended Y-level mining range for every ore in Minecraft. Quick lookup tool with safety tips.",
+  "url": "https://gameguides-4t7.pages.dev/tools/minecraft-ore-level-helper.html",
+  "datePublished": "May 2026",
+  "dateModified": "May 2026",
+  "author": {
+    "@type": "Organization",
+    "name": "GameGuides"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GameGuides",
+    "url": "https://gameguides-4t7.pages.dev"
+  }
+}
+</script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-logo">GameGuides</a>
+            <div class="nav-links">
+                <a href="../minecraft/">Minecraft</a>
+                <a href="../valorant/">Valorant</a>
+                <a href="../genshin-impact/">Genshin Impact</a>
+                <a href="../about.html">About</a>
+            </div>
+        </nav>
+    </header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="https://gameguides-4t7.pages.dev/">Home</a></li>
+<li><a href="https://gameguides-4t7.pages.dev/tools/">Tools Guides</a></li>
+<li aria-current="page">Minecraft Ore Level Helper</li>
+</ol>
+</nav>
+
+    <main>
+        <div class="tool-container">
+            <h1>Minecraft Ore Level Helper</h1>
+            <p class="tool-subtitle">Quick lookup — generally recommended mining Y-levels for every ore type.</p>
+
+            <div class="tool-card">
+                <label for="ore-select">Select Ore Type</label>
+                <select id="ore-select">
+                    <option value="">-- Choose an ore --</option>
+                    <option value="coal">Coal</option>
+                    <option value="iron">Iron</option>
+                    <option value="copper">Copper</option>
+                    <option value="gold">Gold</option>
+                    <option value="redstone">Redstone</option>
+                    <option value="lapis">Lapis Lazuli</option>
+                    <option value="diamond">Diamond</option>
+                    <option value="emerald">Emerald</option>
+                    <option value="netherite">Netherite (Ancient Debris)</option>
+                </select>
+
+                <div id="result" class="result-box">
+                    <div class="ore-name" id="ore-name"></div>
+                    <div class="level-range" id="level-range"></div>
+                    <div class="level-note" id="level-note"></div>
+                    <div class="ore-desc" id="ore-desc"></div>
+                    <div class="safety-tip" id="safety-tip"></div>
+                    <div class="related-links" id="related-links"></div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <strong>Note:</strong> The Y-level ranges shown are based on community testing and generally accepted recommendations for Minecraft Java Edition 1.18+. Ore generation distributions can vary per seed. Bedrock Edition may have slightly different distributions. Always verify against your specific version.
+            </div>
+        </div>
+    
+    <div class="update-note">
+        <p><em>This guide is updated when major game changes affect the strategy. If you notice outdated information, please <a href="../contact.html">contact us</a>.</em></p>
+    </div>
+</main>
+
+    <div class="affiliate-disclosure">
+        This website may earn commissions from qualifying purchases or partner links. This does not affect our editorial content.
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="../about.html">About</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms of Service</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <p class="footer-copy">
+<p class="footer-copy">&copy; 2026 GameGuides. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var oreData = {
+                coal: {
+                    name: 'Coal',
+                    range: 'Y=44 to Y=96',
+                    desc: 'Coal generates most abundantly in exposed stone at higher Y-levels, especially on mountain surfaces and in stony peaks biomes. It is the most common ore and can also be found in smaller amounts at lower depths.',
+                    safety: 'Generally safe to mine. Watch for sudden drops when mining on mountain slopes.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                iron: {
+                    name: 'Iron',
+                    range: 'Y=15 to Y=56<br><span style="font-size:0.8rem;color:var(--text-muted)">also Y=232 to Y=256 (high mountains)</span>',
+                    desc: 'Iron has a tri-modal distribution in 1.18+. Higher concentrations near Y=16 and Y=232. The mid-range around Y=32 also yields consistent results. Smelt with any fuel source.',
+                    safety: 'Moderate risk at Y=16 — lava lakes begin appearing. Bring a water bucket.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                copper: {
+                    name: 'Copper',
+                    range: 'Y=47 to Y=48',
+                    desc: 'Copper is most concentrated in the dripstone caves biome around Y=48. It generates in large vein formations. Outside dripstone caves, distribution is sparse and spread across most Y-levels.',
+                    safety: 'Low risk. Dripstone caves have pointed dripstone hazards — watch your step.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                gold: {
+                    name: 'Gold',
+                    range: 'Y=-16 to Y=-64 (best)<br><span style="font-size:0.8rem;color:var(--text-muted)">also Y=32 to Y=256 (Badlands biome)</span>',
+                    desc: 'Gold is most concentrated in the deepslate layer below Y=0. In Badlands biomes, gold generates at much higher Y-levels (up to Y=256) regardless of depth.',
+                    safety: '<strong>High risk.</strong> Mining below Y=0 puts you in lava lake territory. Always carry a water bucket and fire resistance potions. Never dig straight down.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                redstone: {
+                    name: 'Redstone',
+                    range: 'Y=-59 to Y=-60',
+                    desc: 'Redstone generates most frequently at the deepest levels just above bedrock. Each block drops 4–5 redstone dust. Fortune enchantment significantly increases yield.',
+                    safety: '<strong>High risk.</strong> Deepest mining zone — lava pockets are common. Keep blocks ready to plug lava flows and listen for lava pop sounds.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                lapis: {
+                    name: 'Lapis Lazuli',
+                    range: 'Y=0 to Y=-1',
+                    desc: 'Lapis generates at the transition layer between stone and deepslate. Each block drops 4–9 lapis lazuli. Fortune enchantment dramatically multiplies drops.',
+                    safety: 'Moderate risk. Near deepslate layer — occasional lava pockets. Stay alert.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                diamond: {
+                    name: 'Diamond',
+                    range: 'Y=-54 to Y=-59',
+                    desc: 'Diamonds generate most frequently in the deepslate layer, with peak density around Y=-58. They are less likely to be exposed to air, so strip mining or caving at these depths is most effective.',
+                    safety: '<strong>High risk.</strong> Deepest mining zone — lava lakes are abundant below Y=-54. Bring fire resistance potions, a water bucket, and keep blocks on your hotbar.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                emerald: {
+                    name: 'Emerald',
+                    range: 'Y=232 to Y=256',
+                    desc: 'Emeralds only generate in mountain biomes (Stony Peaks, Windswept Hills, etc.) at high altitudes. They are the rarest overworld ore and always generate as single blocks.',
+                    safety: 'Low risk underground, but very high altitudes mean fall damage is a real threat. Use scaffolding or Elytra.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                },
+                netherite: {
+                    name: 'Netherite (Ancient Debris)',
+                    range: 'Y=13 to Y=15 (Nether)',
+                    desc: 'Ancient Debris generates exclusively in the Nether, with the highest concentration between Y=13 and Y=15. Use beds or TNT for blast mining — Ancient Debris is blast-resistant. Smelt into Netherite Scrap, then craft with Gold Ingots.',
+                    safety: '<strong>Extreme risk.</strong> Nether mining involves lava oceans, hostile mobs, and explosive mining methods. Full enchanted diamond/netherite gear strongly recommended. Fire resistance potions are essential.',
+                    related: '<a href="../minecraft/">Minecraft Guides</a>'
+                }
+            };
+
+            var select = document.getElementById('ore-select');
+            var resultBox = document.getElementById('result');
+            var oreName = document.getElementById('ore-name');
+            var levelRange = document.getElementById('level-range');
+            var levelNote = document.getElementById('level-note');
+            var oreDesc = document.getElementById('ore-desc');
+            var safetyTip = document.getElementById('safety-tip');
+            var relatedLinks = document.getElementById('related-links');
+            var levelNoteEl = document.getElementById('level-note');
+
+            select.addEventListener('change', function() {
+                var key = this.value;
+                if (!key) {
+                    resultBox.classList.remove('visible');
+                    return;
+                }
+                var d = oreData[key];
+                oreName.textContent = d.name;
+                levelRange.innerHTML = d.range;
+                levelNoteEl.textContent = 'Generally recommended range — community-verified';
+                oreDesc.textContent = d.desc;
+                safetyTip.innerHTML = d.safety;
+                relatedLinks.innerHTML = d.related;
+                resultBox.classList.add('visible');
+            });
+        })();
+    </script>
+</body>
+</html>

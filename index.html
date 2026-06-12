@@ -3,203 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameGuides — Expert Game Strategy Guides for 2025-2026</title>
-    <meta name="description" content="The ultimate gaming strategy hub. Expert guides for GTA 6, Elden Ring Nightreign, Monster Hunter Wilds, Helldivers 2, Diablo 4, Apex Legends, Overwatch 2, Warframe, Destiny 2, Black Myth: Wukong, COD BO6, Cyberpunk 2077 & 30+ games covered. Updated weekly.">
-    <meta name="keywords" content="game guides, Minecraft guide, Valorant guide, Genshin Impact guide, Fortnite guide, League of Legends guide, Baldur's Gate 3 guide, Roblox guide, gaming strategy, 2025 games, 2026 games">
+    <title>GameGuides — Practical Game Guides, Tools, and Checklists</title>
+    <meta name="description" content="Clear, updated guides for Minecraft, Valorant, and Genshin Impact. Find strategies, beginner checklists, calculators, and meta updates in one place.">
+    <meta name="keywords" content="Minecraft guide, Valorant guide, Genshin Impact guide, game guides, gaming strategy, game tools, beginner checklist">
     <link rel="canonical" href="https://gameguides-4t7.pages.dev/">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="admin/css/admin.css">
-    <style>
-        .hero { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; }
-        .hero h1 { font-size: 3em; margin-bottom: 10px; background: linear-gradient(90deg, #FFD700, #FF6B6B, #4ECDC4, #00A8FF, #C8AA6E, #6D28D9, #FF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero p { font-size: 1.2em; color: #ccc; max-width: 700px; margin: 0 auto; }
-        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 30px; max-width: 1200px; margin: 0 auto; }
-        .game-card { border-radius: 12px; padding: 20px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-        .game-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        .game-card .latest { position: absolute; top: 12px; right: 12px; background: #FF4444; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.7em; text-transform: uppercase; letter-spacing: 1px; }
-        .game-card h3 { margin: 0 0 8px 0; font-size: 1.3em; }
-        .game-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .game-card .preview-img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; background: rgba(255,255,255,0.05); }
-        /* Minecraft card */
-        .card-mc { background: #F5E6C8; border: 3px solid #5C3A1E; color: #2D1810; }
-        .card-mc h3 { color: #3B8526; }
-        /* Valorant card */
-        .card-val { background: #1A242D; border: 2px solid #FF4655; color: #ECE8E1; }
-        .card-val h3 { color: #FF4655; }
-        /* Genshin card */
-        .card-gi { background: #F5F0E8; border: 2px solid #FFD700; color: #1A1A2E; }
-        .card-gi h3 { color: #B8860B; }
-        /* Fortnite card */
-        .card-fn { background: #252540; border: 2px solid #00A8FF; color: #EEE; }
-        .card-fn h3 { color: #00A8FF; }
-        /* LoL card */
-        .card-lol { background: #091428; border: 2px solid #C8AA6E; color: #A09B8C; }
-        .card-lol h3 { color: #C8AA6E; }
-        /* BG3 card */
-        .card-bg3 { background: #FEF3C7; border: 3px double #6D28D9; color: #1E293B; }
-        .card-bg3 h3 { color: #6D28D9; }
-        /* Roblox card */
-        .card-rb { background: #1A1A2E; border: 2px solid #FF4444; color: #E8E8F0; }
-        .card-rb h3 { color: #FF4444; }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GameGuides — Practical Game Guides, Tools, and Checklists">
+    <meta property="og:description" content="Clear, updated guides for Minecraft, Valorant, and Genshin Impact. Find strategies, beginner checklists, calculators, and meta updates in one place.">
+    <meta property="og:url" content="https://gameguides-4t7.pages.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+    <meta property="og:site_name" content="GameGuides">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GameGuides — Practical Game Guides, Tools, and Checklists">
+    <meta name="twitter:description" content="Clear, updated guides for Minecraft, Valorant, and Genshin Impact. Find strategies, beginner checklists, calculators, and meta updates in one place.">
+    <meta name="twitter:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GameGuides",
+  "url": "https://gameguides-4t7.pages.dev/",
+  "description": "Clear, updated guides for Minecraft, Valorant, and Genshin Impact. Find strategies, beginner checklists, calculators, and meta updates in one place.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://gameguides-4t7.pages.dev/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">GameGuides</a>
-            <ul>
-                <li><a href="minecraft/">Minecraft</a></li>
-                <li><a href="roblox/">Roblox</a></li>
-                <li><a href="valorant/">Valorant</a></li>
-                <li><a href="genshin-impact/">Genshin Impact</a></li>
-                <li><a href="fortnite/">Fortnite</a></li>
-                <li><a href="league-of-legends/">League of Legends</a></li>
-                <li><a href="baldurs-gate-3/">Baldur's Gate 3</a></li>
-                <li><a href="elden-ring-nightreign/">Elden Ring Nightreign</a></li>
-                <li><a href="monster-hunter-wilds/">Monster Hunter Wilds</a></li>
-                <li><a href="gta-6/">GTA 6</a></li>
-            </ul>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="nav-logo">GameGuides</a>
+            <div class="nav-links">
+                <a href="minecraft/">Minecraft</a>
+                <a href="valorant/">Valorant</a>
+                <a href="genshin-impact/">Genshin Impact</a>
+                <a href="about.html">About</a>
+            </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero -->
         <section class="hero">
-            <h1>GameGuides</h1>
-            <p>Expert strategy guides for the world's most popular games. Updated weekly with the latest meta, builds, and walkthroughs for 2025-2026.</p>
+            <h1>Practical Game Guides, Tools, and Checklists</h1>
+            <p>Clear, updated guides for Minecraft, Valorant, and Genshin Impact. Find strategies, beginner checklists, calculators, and meta updates in one place.</p>
         </section>
 
-        <div class="ad-container ad-banner">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="1234567890" data-ad-format="auto"></ins>
-        </div>
-
-        <section>
-            <h2 style="text-align:center; margin: 30px 0 10px; color: #ccc;">Latest Guides</h2>
-            <div class="game-grid">
-                <a href="minecraft/minecraft-2025-updates.html" class="game-card card-mc">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://www.minecraft.net/content/dam/minecraft/edition-java/2025-06-12-survival-screenshot.png" alt="Minecraft 2025 survival" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Minecraft</h3>
-                    <p>Ultimate Survival Guide: Crafting recipes, ore distribution chart, mob bestiary &amp; 3-hour speedrun checklist</p>
-                </a>
-                <a href="valorant/valorant-2025-new-agents.html" class="game-card card-val">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://images.contentstack.io/v3/assets/bltb653c80d14f8a2b0c/blt5f3e3e3e3e3e3e3e3/65f3e3e3e3e3e3e3e3e/tejo-agent-image.png" alt="Valorant Tejo agent" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Valorant</h3>
-                    <p>Tactical Briefing: New Agent Tejo, Ascent/Split map strategies &amp; weapon damage charts</p>
-                </a>
-                <a href="genshin-impact/genshin-2025-new-characters.html" class="game-card card-gi">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://upload-os-bbs.hoyolab.com/upload/2025/09/10/1234567890abcdef1234567890abcdef.jpg" alt="Genshin Impact Natlan" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Genshin Impact</h3>
-                    <p>Adventurer's Notes: Natlan region, Lauma &amp; Flins guides, elemental reaction table &amp; pity calculator</p>
-                </a>
-                <a href="fortnite/fortnite-2025-new-season.html" class="game-card card-fn">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://cdn2.unrealengine.com/7-season-2-key-art-1920x1080-1234567890.jpg" alt="Fortnite Chapter 7 Season 2" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Fortnite</h3>
-                    <p>Battle Briefing: Weapon tier list, landing zone heatmap, Battle Pass rewards &amp; faction guide</p>
-                </a>
-                <a href="league-of-legends/lol-2025-new-patch.html" class="game-card card-lol">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://images.contentstack.io/v3/assets/blt5f3e3e3e3e3e3e3e/blt5f3e3e3e3e3e3e3e/65f3e3e3e3e3e3e3e3e/s16-summoners-rift.jpg" alt="LoL S16 Summoner's Rift" loading="lazy" onerror="this.style.display='none'">
-                    <h3>League of Legends</h3>
-                    <p>Tactical Report: S16 jungle meta, Yunara &amp; Mel Medarda guides, champion counter matrix</p>
-                </a>
-                <a href="baldurs-gate-3/bg3-2025-top-builds.html" class="game-card card-bg3">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1086940/ss_1234567890abcdef1234567890abcdef.jpg" alt="Baldur's Gate 3 character creation" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Baldur's Gate 3</h3>
-                    <p>D&amp;D Manual: Top builds, attribute tables, spell decision trees &amp; Honour Mode tactics</p>
-                </a>
-                <a href="roblox/roblox-2025-game-modes.html" class="game-card card-rb">
-                    <span class="latest">New</span>
-                    <img class="preview-img" src="https://tr.rbxcdn.com/1234567890abcdef1234567890abcdef/768x432/ArcaneAdventures-Gameplay-1234567890.png" alt="Roblox Arcane Adventures" loading="lazy" onerror="this.style.display='none'">
-                    <h3>Roblox</h3>
-                    <p>Community Wiki: Game mode comparison, Arcane Adventures &amp; MeepCity guides, daily quest checklist</p>
-                </a>
-                <a href="elden-ring-nightreign/nightreign-beginners-guide.html" class="game-card" style="background:#12100c;border:2px solid #c9a84c;color:#c8c0b8;">
-                    <span class="latest">New</span>
-                    <h3 style="color:#c9a84c;">Elden Ring Nightreign</h3>
-                    <p>Field Journal: Survival manual, character builds, map routes &amp; solo tactics for the roguelike</p>
-                </a>
-                <a href="monster-hunter-wilds/mhw-wound-system-guide.html" class="game-card" style="background:#1e1c10;border:2px solid #ff6b35;color:#d4c8a0;">
-                    <span class="latest">New</span>
-                    <h3 style="color:#ff6b35;">Monster Hunter Wilds</h3>
-                    <p>Hunter's Notes: Wound system mastery, weapon tier list &amp; elemental weakness database</p>
-                </a>
-                <a href="gta-6/gta6-everything-we-know.html" class="game-card" style="background:#161b22;border:2px solid #ff6b9d;color:#e6e6e6;">
-                    <span class="latest">Hot</span>
-                    <h3 style="color:#ff6b9d;">GTA 6</h3>
-                    <p>Intel Briefing: Confirmed Nov 19 release, Vice City map, dual protagonists &amp; gameplay systems</p>
-                </a>
-                <a href="black-myth-wukong/wukong-boss-guide.html" class="game-card" style="background:#1e1008;border:2px solid #ff4444;color:#d4c0a0;">
-                    <h3 style="color:#ff4444;">Black Myth: Wukong</h3>
-                    <p>Mythological Bestiary: Chapter 1 boss dossier, hidden encounters &amp; Flaming Frenzy combo guide</p>
-                </a>
-                <a href="cod-black-ops-6/bo6-meta-weapons-guide.html" class="game-card" style="background:#1a1a1a;border:2px solid #ff8800;color:#c0c0c0;">
-                    <h3 style="color:#ff8800;">Call of Duty: Black Ops 6</h3>
-                    <p>Tactical Manual: Meta weapons (Kilo 45/MP7), map control, Omni-movement &amp; Zombies guide</p>
-                </a>
-                <a href="terraria/terraria-boss-progression.html" class="game-card" style="background:#1e1408;border:2px solid #8B4513;color:#d4c8a0;">
-                    <h3 style="color:#8B4513;">Terraria</h3>
-                    <p>Adventurer's Log: Complete 15-boss progression from King Slime to Moon Lord with gear guides</p>
-                </a>
-                <a href="stardew-valley/stardew-1-6-update-guide.html" class="game-card" style="background:#fff8ec;border:2px solid #4a7c3f;color:#3a3020;">
-                    <span class="latest">1.6</span>
-                    <h3 style="color:#4a7c3f;">Stardew Valley</h3>
-                    <p>Farmer's Almanac: 1.6 update, Mastery Cave, new farms, Desert Festival &amp; Bookseller guide</p>
-                </a>
-                <a href="elden-ring/elden-ring-dlc-guide.html" class="game-card" style="background:#12100c;border:2px solid #c9a84c;color:#c8c0a8;">
-                    <h3 style="color:#c9a84c;">Elden Ring: SotE DLC</h3>
-                    <p>Tarnished Chronicles: All 13 DLC bosses, Scadutree Fragment guide &amp; Promised Consort Radahn</p>
-                </a>
-                <a href="cyberpunk-2077/cyberpunk-2-0-builds.html" class="game-card" style="background:#111118;border:2px solid #ff00ff;color:#e0d040;">
-                    <h3 style="color:#ff00ff;">Cyberpunk 2077</h3>
-                    <p>Neural Interface: 5 top 2.0+Phantom Liberty builds with full attributes, perks &amp; cyberware</p>
-                </a>
-                <a href="helldivers-2/helldivers-new-faction.html" class="game-card" style="background:#0a1508;border:2px solid #ffcc00;color:#c8d8a0;">
-                    <span class="latest">New Faction</span>
-                    <h3 style="color:#ffcc00;">Helldivers 2</h3>
-                    <p>Field Report: Illuminate invasion tactics, faction-specific loadouts &amp; team role strategies</p>
-                </a>
-                <a href="starfield/starfield-ship-building.html" class="game-card" style="background:#0a0a15;border:2px solid #3daee9;color:#c0d0e0;">
-                    <h3 style="color:#3daee9;">Starfield</h3>
-                    <p>Ship Engineering: Best reactors, grav drives, bounty hunter builds &amp; combat power management</p>
-                </a>
-                <a href="diablo-4/diablo4-new-season.html" class="game-card" style="background:#0d0505;border:2px solid #cc3333;color:#cc9999;">
-                    <span class="latest">Season 6</span>
-                    <h3 style="color:#cc3333;">Diablo 4</h3>
-                    <p>Book of Lilith: Class tier list, fastest 1-100 leveling &amp; Pit Tier 100+ endgame</p>
-                </a>
-                <a href="apex-legends/apex-new-legend-guide.html" class="game-card" style="background:#0a0808;border:2px solid #ff4444;color:#ccbbbb;">
-                    <h3 style="color:#ff4444;">Apex Legends</h3>
-                    <p>Legendary Files: Vantage kit, Nemesis meta, team comps &amp; Broken Moon map guide</p>
-                </a>
-                <a href="overwatch-2/ow2-new-hero-guide.html" class="game-card" style="background:#0a0f18;border:2px solid #218ffe;color:#c0d0e0;">
-                    <h3 style="color:#218ffe;">Overwatch 2</h3>
-                    <p>Field Manual: Juno hero guide, Season 16 tier list &amp; competitive ranking changes</p>
-                </a>
-                <a href="warframe/warframe-1999-update.html" class="game-card" style="background:#08080a;border:2px solid #c9a84c;color:#c0c0c8;">
-                    <h3 style="color:#c9a84c;">Warframe</h3>
-                    <p>Tenno Archives: 1999 update, Proto-Frames, Höllvania &amp; Technocyte Coda Liches</p>
-                </a>
-                <a href="destiny-2/destiny2-latest-expansion.html" class="game-card" style="background:#080e14;border:2px solid #4dadd6;color:#b0c8d8;">
-                    <h3 style="color:#4dadd6;">Destiny 2</h3>
-                    <p>Vanguard Briefing: The Final Shape, Prismatic builds, raid meta &amp; god roll weapons</p>
-                </a>
+        <!-- Featured Games -->
+        <section class="feature-games">
+            <div class="feature-card">
+                <div class="fc-icon">&#9203;</div>
+                <h3>Minecraft</h3>
+                <p>Survival guides, crafting recipes, ore distribution charts, and speedrun checklists. Everything a block-builder needs.</p>
+                <a href="minecraft/" class="fc-link">Browse Guides</a>
+            </div>
+            <div class="feature-card">
+                <div class="fc-icon">&#127919;</div>
+                <h3>Valorant</h3>
+                <p>Agent ability breakdowns, weapon recoil patterns, map callouts, and meta tier lists. Improve your aim and game sense.</p>
+                <a href="valorant/" class="fc-link">Browse Guides</a>
+            </div>
+            <div class="feature-card">
+                <div class="fc-icon">&#9733;</div>
+                <h3>Genshin Impact</h3>
+                <p>Character builds, elemental reaction tables, artifact farming routes, and world boss strategies. Master Teyvat.</p>
+                <a href="genshin-impact/" class="fc-link">Browse Guides</a>
+            </div>
+            <div class="feature-card">
+                <div class="fc-icon">&#129502;</div>
+                <h3>Hollow Knight</h3>
+                <p>Silksong expansion news, boss strategies, charm builds, and walkthroughs. Master the Kingdom of Hallownest.</p>
+                <a href="hollow-knight/" class="fc-link">Browse Guides</a>
             </div>
         </section>
 
-        <div class="ad-container ad-banner" style="margin-top: 3rem;">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="1122334455" data-ad-format="auto"></ins>
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <div class="section-header">
+                <h2>Why trust GameGuides?</h2>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-icon">&#9889;</span>
+                    <div>
+                        <h4>Guides structured for quick reading</h4>
+                        <p>No walls of text. Every guide uses clear headings, tables, and checklists so you find what you need fast.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">&#128220;</span>
+                    <div>
+                        <h4>Game version info shown when available</h4>
+                        <p>We note which patch or update each guide was written for, so you know it applies to your version.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">&#9888;</span>
+                    <div>
+                        <h4>Unverified details marked clearly</h4>
+                        <p>If information comes from community testing or early datamines rather than official sources, we label it.</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">&#128260;</span>
+                    <div>
+                        <h4>Articles updated when major patches change gameplay</h4>
+                        <p>We revisit core guides after significant balance patches to keep strategies and numbers accurate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Guides -->
+        <div class="section-header">
+            <h2>Latest Guides</h2>
+            <span class="section-sub">Recently updated</span>
         </div>
+        <div class="guide-grid">
+            <!-- Minecraft -->
+            <a href="minecraft/minecraft-2025-updates.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/204220/header.jpg" alt="Minecraft" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Minecraft</span>
+                    <h3 class="card-title">Ultimate Survival Guide 2025-2026</h3>
+                    <p class="card-desc">Crafting recipes, ore distribution chart, mob bestiary &amp; 3-hour speedrun checklist.</p>
+                    <div class="card-tags"><span>Survival</span><span>Crafting</span><span>Ore Charts</span></div>
+                </div>
+            </a>
+
+            <!-- Valorant -->
+            <a href="valorant/valorant-2025-new-agents.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/ss_13bb35638c0267759276f511ee97064773b37a51.1920x1080.jpg" alt="Valorant" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Valorant</span>
+                    <h3 class="card-title">New Agent Tejo &amp; Weapon Recoil Mastery</h3>
+                    <p class="card-desc">Agent ability breakdowns, Phantom/Vandal recoil patterns &amp; map callout strategies.</p>
+                    <div class="card-tags"><span>Agents</span><span>Weapons</span><span>Maps</span></div>
+                </div>
+            </a>
+
+            <!-- Genshin Impact -->
+            <a href="genshin-impact/genshin-2025-new-characters.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1905820/header.jpg" alt="Genshin Impact" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Genshin Impact</span>
+                    <h3 class="card-title">Natlan Region &amp; New Characters Guide</h3>
+                    <p class="card-desc">Elemental reaction tables, pity calculator, artifact builds &amp; world boss strategies.</p>
+                    <div class="card-tags"><span>Characters</span><span>Builds</span><span>Elements</span></div>
+                </div>
+            </a>
+
+            <!-- Terraria -->
+            <a href="terraria/terraria-boss-progression.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg" alt="Terraria" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Terraria</span>
+                    <h3 class="card-title">Complete Boss Progression Guide</h3>
+                    <p class="card-desc">15-boss path from King Slime to Moon Lord with gear checklists &amp; arena builds.</p>
+                    <div class="card-tags"><span>Bosses</span><span>Progression</span><span>Gear</span></div>
+                </div>
+            </a>
+
+            <!-- Elden Ring -->
+            <a href="elden-ring/elden-ring-dlc-guide.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2778580/header.jpg" alt="Elden Ring DLC" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Elden Ring</span>
+                    <h3 class="card-title">Shadow of the Erdtree: All 13 Bosses</h3>
+                    <p class="card-desc">Scadutree Fragment guide, Promised Consort Radahn &amp; DLC build recommendations.</p>
+                    <div class="card-tags"><span>DLC</span><span>Bosses</span><span>Builds</span></div>
+                </div>
+            </a>
+
+            <!-- Baldur's Gate 3 -->
+            <a href="baldurs-gate-3/bg3-2025-top-builds.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/header.jpg" alt="Baldur's Gate 3" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Baldur's Gate 3</span>
+                    <h3 class="card-title">Top Builds &amp; Honour Mode Tactics</h3>
+                    <p class="card-desc">Class tier list, attribute tables, spell decision trees &amp; Honour Mode survival guide.</p>
+                    <div class="card-tags"><span>Builds</span><span>Spells</span><span>Honour Mode</span></div>
+                </div>
+            </a>
+
+            <!-- Marvel Rivals S8 -->
+            <a href="marvel-rivals/marvel-rivals-season8-meta-tier-list.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/header.jpg" alt="Marvel Rivals" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Marvel Rivals</span>
+                    <h3 class="card-title">Season 8 Meta Tier List (June 2026)</h3>
+                    <p class="card-desc">S-Tier heroes, Devil Dinosaur breakdown, best team comps &amp; competitive ranking guide.</p>
+                    <div class="card-tags"><span>Tier List</span><span>Meta</span><span>Team Comps</span></div>
+                </div>
+            </a>
+
+            <!-- Diablo 4 -->
+            <a href="diablo-4/diablo-4-meta-builds-2026.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/header.jpg" alt="Diablo 4" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Diablo 4</span>
+                    <h3 class="card-title">Best Builds Tier List 2026: S-Tier Endgame Meta</h3>
+                    <p class="card-desc">Warlock &amp; Paladin dominate — Dread Claws, Blessed Hammer, Whirlwind Barb &amp; more.</p>
+                    <div class="card-tags"><span>Builds</span><span>Tier List</span><span>Endgame</span></div>
+                </div>
+            </a>
+
+            <!-- Hollow Knight Silksong -->
+            <a href="hollow-knight/hollow-knight-silksong-sea-of-sorrow-guide.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1030300/header.jpg" alt="Hollow Knight Silksong" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Hollow Knight</span>
+                    <h3 class="card-title">Silksong: Sea of Sorrow Expansion Guide 2026</h3>
+                    <p class="card-desc">Everything we know — new areas, Switch 2 Edition, Silk &amp; Crest system &amp; Team Cherry plans.</p>
+                    <div class="card-tags"><span>Expansion</span><span>Silksong</span><span>News</span></div>
+                </div>
+            </a>
+
+            <!-- Helldivers 2 -->
+            <a href="helldivers-2/helldivers-2-meta-loadouts-2026.html" class="guide-card">
+                <div class="card-img-wrap">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/header.jpg" alt="Helldivers 2" loading="lazy">
+                    <span class="card-badge badge-new">New</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-game-tag">Helldivers 2</span>
+                    <h3 class="card-title">Best Loadouts 2026: Meta Builds for Every Front</h3>
+                    <p class="card-desc">Squid Squasher, Clanker Crusher &amp; Exterminator loadouts for Illuminate, Automatons &amp; Terminids.</p>
+                    <div class="card-tags"><span>Loadouts</span><span>Meta</span><span>Factions</span></div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Popular Tools -->
+        <div class="section-header">
+            <h2>Popular Tools</h2>
+            <span class="section-sub">Calculators &amp; checklists</span>
+        </div>
+        <section class="tools-section">
+            <div class="tools-grid">
+                <a href="genshin-impact/" class="tool-card">
+                    <h4>Pity Calculator</h4>
+                    <p>Track your Genshin Impact wish count and estimate when your next 5-star arrives.</p>
+                </a>
+                <a href="minecraft/" class="tool-card">
+                    <h4>Crafting Recipe Lookup</h4>
+                    <p>Quick search for any Minecraft crafting recipe, smelting result, or brewing stand potion.</p>
+                </a>
+                <a href="valorant/" class="tool-card">
+                    <h4>Agent Counter Picker</h4>
+                    <p>Find the best agent picks and team compositions against any enemy lineup on every map.</p>
+                </a>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 GameGuides. All rights reserved. | <a href="sitemap.xml">Sitemap</a></p>
+    <!-- Affiliate Disclosure -->
+    <div class="affiliate-disclosure">
+        This website may earn commissions from qualifying purchases or partner links. This does not affect our editorial content.
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+            <a href="sitemap.xml">Sitemap</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 GameGuides. All rights reserved.</p>
     </footer>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <script src="admin/js/admin.js"></script>
 </body>
 </html>
