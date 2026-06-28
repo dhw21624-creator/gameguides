@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Pity Calculator — GameGuides</title>
+    <meta name="description" content="Track your Genshin Impact wish count. See how many pulls until soft pity and hard pity for character event, weapon, and standard banners.">
+    <link rel="canonical" href="https://gameguides-4t7.pages.dev/tools/genshin-pity-calculator.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tool-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 2.5rem;
+        }
+        .tool-container h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.4px;
+            margin-bottom: 0.4rem;
+        }
+        .tool-container .tool-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group:last-of-type { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.45rem;
+        }
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-group select {
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f07c3c' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.9rem center;
+            padding-right: 2.4rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .form-group .input-hint {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+        .form-group .input-hint.error {
+            color: var(--red);
+        }
+        .btn-calc {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 650;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-calc:hover { background: var(--accent-hover); }
+        .btn-calc:active { transform: scale(0.98); }
+
+        .result-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.4rem 1.6rem;
+            margin-top: 1.2rem;
+            display: none;
+        }
+        .result-box.visible { display: block; }
+        .result-box .pity-meters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .pity-meter {
+            text-align: center;
+            padding: 1rem 0.8rem;
+            background: var(--bg-primary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+        }
+        .pity-meter .meter-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+        .pity-meter .meter-value {
+            font-size: 2rem;
+            font-weight: 750;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .pity-meter .meter-sub {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+        }
+        .pity-meter.soft .meter-value { color: var(--accent); }
+        .pity-meter.hard .meter-value { color: var(--red); }
+        .result-box .banner-info {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .result-box .banner-info strong { color: var(--accent); }
+        .disclaimer-box {
+            background: rgba(240,124,60,0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.1rem;
+            margin-top: 1.5rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .disclaimer-box strong { color: var(--accent); }
+        @media (max-width: 480px) {
+            .result-box .pity-meters { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Genshin Impact Pity Calculator — GameGuides">
+    <meta property="og:description" content="Track your Genshin Impact wish count. See how many pulls until soft pity and hard pity for character event, weapon, and standard banners.">
+    <meta property="og:url" content="https://gameguides-4t7.pages.dev/tools/genshin-pity-calculator.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+    <meta property="og:site_name" content="GameGuides">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Genshin Impact Pity Calculator — GameGuides">
+    <meta name="twitter:description" content="Track your Genshin Impact wish count. See how many pulls until soft pity and hard pity for character event, weapon, and standard banners.">
+    <meta name="twitter:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Genshin Impact Pity Calculator — GameGuides",
+  "description": "Track your Genshin Impact wish count. See how many pulls until soft pity and hard pity for character event, weapon, and standard banners.",
+  "url": "https://gameguides-4t7.pages.dev/tools/genshin-pity-calculator.html",
+  "datePublished": "May 2026",
+  "dateModified": "May 2026",
+  "author": {
+    "@type": "Organization",
+    "name": "GameGuides"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GameGuides",
+    "url": "https://gameguides-4t7.pages.dev"
+  }
+}
+</script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-logo">GameGuides</a>
+            <div class="nav-links">
+                <a href="../minecraft/">Minecraft</a>
+                <a href="../valorant/">Valorant</a>
+                <a href="../genshin-impact/">Genshin Impact</a>
+                <a href="../about.html">About</a>
+            </div>
+        </nav>
+    </header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="https://gameguides-4t7.pages.dev/">Home</a></li>
+<li><a href="https://gameguides-4t7.pages.dev/tools/">Tools Guides</a></li>
+<li aria-current="page">Genshin Pity Calculator</li>
+</ol>
+</nav>
+
+    <main>
+        <div class="tool-container">
+            <h1>Genshin Impact Pity Calculator</h1>
+            <p class="tool-subtitle">Enter your current pity count and see how many pulls until soft pity and hard pity.</p>
+
+            <div class="tool-card">
+                <div class="form-group">
+                    <label for="pity-count">Current Pity Count</label>
+                    <input type="number" id="pity-count" min="0" max="90" placeholder="0–90">
+                    <div class="input-hint" id="pity-hint">Number of wishes since your last 5-star (0–90)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="banner-type">Banner Type</label>
+                    <select id="banner-type">
+                        <option value="character">Character Event Wish</option>
+                        <option value="weapon">Weapon Event Wish (Epitome Invocation)</option>
+                        <option value="standard">Standard Wish (Wanderlust Invocation)</option>
+                    </select>
+                </div>
+
+                <button id="calc-btn" class="btn-calc">Calculate Pity</button>
+
+                <div id="result" class="result-box">
+                    <div class="pity-meters">
+                        <div class="pity-meter soft">
+                            <div class="meter-label">Pulls to Soft Pity</div>
+                            <div class="meter-value" id="soft-pity">—</div>
+                            <div class="meter-sub" id="soft-detail"></div>
+                        </div>
+                        <div class="pity-meter hard">
+                            <div class="meter-label">Pulls to Hard Pity</div>
+                            <div class="meter-value" id="hard-pity">—</div>
+                            <div class="meter-sub" id="hard-detail"></div>
+                        </div>
+                    </div>
+                    <div class="banner-info" id="banner-info"></div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <strong>Disclaimer:</strong> This calculator provides estimates based on publicly known pity mechanics. Actual results depend on the game's internal rules and RNG (random number generation). Rates and thresholds are subject to change by HoYoverse. This tool is not affiliated with or endorsed by HoYoverse.
+            </div>
+        </div>
+    
+    <div class="update-note">
+        <p><em>This guide is updated when major game changes affect the strategy. If you notice outdated information, please <a href="../contact.html">contact us</a>.</em></p>
+    </div>
+</main>
+
+    <div class="affiliate-disclosure">
+        This website may earn commissions from qualifying purchases or partner links. This does not affect our editorial content.
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="../about.html">About</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms of Service</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <p class="footer-copy">
+<p class="footer-copy">&copy; 2026 GameGuides. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var pityInput = document.getElementById('pity-count');
+            var bannerSelect = document.getElementById('banner-type');
+            var calcBtn = document.getElementById('calc-btn');
+            var pityHint = document.getElementById('pity-hint');
+            var resultBox = document.getElementById('result');
+
+            var banners = {
+                character: {
+                    soft: 74,
+                    hard: 90,
+                    info: 'Soft pity begins at <strong>pull 74</strong> with increased 5-star rate. Guaranteed 5-star at <strong>pull 90</strong> (hard pity). The 50/50 rule applies: if your last 5-star was not the featured character, your next 5-star is guaranteed to be the featured one.'
+                },
+                weapon: {
+                    soft: 63,
+                    hard: 80,
+                    info: 'Soft pity begins at <strong>pull 63</strong> with increased 5-star rate. Guaranteed 5-star at <strong>pull 80</strong> (hard pity). Epitomized Path lets you chart a course to a specific weapon; after 2 Fate Points, your next 5-star is guaranteed.'
+                },
+                standard: {
+                    soft: 74,
+                    hard: 90,
+                    info: 'Same pity thresholds as character banner. Soft pity at <strong>pull 74</strong>, hard pity at <strong>pull 90</strong>. No 50/50 system — 5-star pulls come from the standard pool of characters and weapons.'
+                }
+            };
+
+            function validate() {
+                var val = parseInt(pityInput.value, 10);
+                if (isNaN(val) || pityInput.value.trim() === '') {
+                    pityHint.textContent = 'Please enter a number between 0 and 90';
+                    pityHint.className = 'input-hint error';
+                    return null;
+                }
+                if (val < 0 || val > 90) {
+                    pityHint.textContent = 'Pity count must be between 0 and 90';
+                    pityHint.className = 'input-hint error';
+                    return null;
+                }
+                pityHint.textContent = 'Number of wishes since your last 5-star (0–90)';
+                pityHint.className = 'input-hint';
+                return val;
+            }
+
+            function calculate() {
+                var pity = validate();
+                if (pity === null) return;
+
+                var banner = banners[bannerSelect.value];
+                var softRemaining = Math.max(0, banner.soft - pity);
+                var hardRemaining = Math.max(0, banner.hard - pity);
+
+                document.getElementById('soft-pity').textContent = softRemaining;
+                document.getElementById('hard-pity').textContent = hardRemaining;
+
+                if (pity >= banner.soft) {
+                    document.getElementById('soft-detail').textContent = 'Already in soft pity zone';
+                } else {
+                    document.getElementById('soft-detail').textContent = 'Soft pity at pull ' + banner.soft;
+                }
+
+                if (pity >= banner.hard) {
+                    document.getElementById('hard-detail').textContent = 'Hard pity reached — 5-star guaranteed next pull';
+                } else if (hardRemaining === 1) {
+                    document.getElementById('hard-detail').textContent = 'Next pull is guaranteed 5-star';
+                } else {
+                    document.getElementById('hard-detail').textContent = 'Hard pity at pull ' + banner.hard;
+                }
+
+                document.getElementById('banner-info').innerHTML = banner.info;
+                resultBox.classList.add('visible');
+            }
+
+            calcBtn.addEventListener('click', calculate);
+            pityInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') calculate();
+            });
+            bannerSelect.addEventListener('change', function() {
+                if (resultBox.classList.contains('visible')) calculate();
+            });
+            pityInput.addEventListener('input', function() {
+                validate();
+            });
+        })();
+    </script>
+</body>
+</html>

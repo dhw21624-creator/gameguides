@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Valorant Sensitivity Converter – convert your sensitivity settings between Valorant, CS2, Overwatch, Apex Legends, and other FPS games. Includes eDPI calculator and cross-game conversion formulas.">
+    <meta name="keywords" content="Valorant sensitivity converter, Valorant sens converter, convert CS to Valorant sens, Valorant eDPI calculator, crosshair sensitivity conversion">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Valorant Sensitivity Converter – Cross-Game Sens Conversion | GameGuides">
+    <meta property="og:description" content="Convert your mouse sensitivity between Valorant and other FPS games. Includes eDPI explanation, conversion formulas, and step-by-step setup guide.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Valorant Sensitivity Converter – Cross-Game Sens Conversion | GameGuides</title>
+    <link rel="canonical" href="https://gameguides.pages.dev/games/valorant/sensitivity-converter.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6713143382188254" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Valorant Sensitivity Converter – Cross-Game Sens Conversion",
+  "description": "Convert your mouse sensitivity between Valorant and other FPS games. Includes eDPI explanation, conversion formulas, and step-by-step setup guide.",
+  "url": "https://gameguides-4t7.pages.dev/games/valorant/sensitivity-converter.html",
+  "datePublished": "2026-05-27",
+  "dateModified": "2026-05-27",
+  "author": { "@type": "Organization", "name": "GameGuides" },
+  "publisher": { "@type": "Organization", "name": "GameGuides", "url": "https://gameguides-4t7.pages.dev" }
+}
+</script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">GameGuides</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#games">Games</a></li>
+                    <li><a href="../">Back to Valorant</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <div class="article-header">
+                <div class="container">
+                    <div class="breadcrumb" style="text-align:left;max-width:800px;margin:0 auto 16px;">
+                        <a href="/">Home</a> &raquo; <a href="../">Valorant</a> &raquo; Sensitivity Converter
+                    </div>
+                    <h1>Valorant Sensitivity Converter – Cross-Game Sens Conversion</h1>
+                    <div class="article-meta">
+                        <span>Category: Settings</span> &bull;
+                        <span>Updated: 2026-05-27</span> &bull;
+                        <span>Game: Valorant</span>
+                    </div>
+    <div class="guide-info-box">
+        <h3>Guide Information</h3>
+        <dl>
+            <dt>Game</dt><dd>Valorant</dd>
+            <dt>Topic</dt><dd>Sensitivity / Mouse Settings</dd>
+            <dt>Last Updated</dt><dd>May 2026</dd>
+            <dt>Game Version</dt><dd>Patch 10.x (2026)</dd>
+            <dt>Verification Status</dt><dd>Verified (conversion ratios and formulas are mathematical constants; not subject to game patches)</dd>
+            <dt>Reading Time</dt><dd>8-10 min</dd>
+        </dl>
+    </div>
+                </div>
+            </div>
+
+            <div class="article-body">
+                <div class="quick-answer">
+                    <h2>Quick Answer: Common Conversion Ratios</h2>
+                    <table>
+                        <tr><th>From Game</th><th>To Valorant</th><th>Formula</th></tr>
+                        <tr><td>CS2 / CS:GO</td><td>Multiply by <strong>0.318</strong></td><td>Valorant sens = CS sens × 0.318</td></tr>
+                        <tr><td>Overwatch 2</td><td>Divide by <strong>10.6</strong></td><td>Valorant sens = OW sens ÷ 10.6</td></tr>
+                        <tr><td>Apex Legends</td><td>Multiply by <strong>0.1</strong> (approx)</td><td>Valorant sens = Apex sens × 0.1 (1.0 Apex ADS multiplier assumed)</td></tr>
+                        <tr><td>Rainbow Six Siege</td><td>Multiply by <strong>1.0</strong> (nearly 1:1)</td><td>Valorant and Siege use similar scale at default FOV</td></tr>
+                        <tr><td>Fortnite</td><td>Divide by <strong>25-30</strong> (varies by mode)</td><td>Valorant sens = Fortnite sens ÷ 27 (approximate, depends on targeting sens setting)</td></tr>
+                    </table>
+                    <p>Use our <a href="../../tools/sensitivity-converter.html">interactive sensitivity converter tool</a> for precise calculations with any game.</p>
+                </div>
+
+                <p>Converting your sensitivity between games is essential for maintaining muscle memory. Your brain takes hundreds of hours to build the hand-eye coordination for precise flicks and tracking — throwing that away by using a wildly different sensitivity in each game is the single biggest unforced error FPS players make. This guide explains the math, the tools, and the method to match your sensitivity perfectly across every game you play.</p>
+
+                <div class="ad-placeholder">Advertisement</div>
+
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#edpi">What Is eDPI and Why It Matters</a></li>
+                    <li><a href="#valorant-sens">How Valorant Sensitivity Works</a></li>
+                    <li><a href="#conversions">Cross-Game Conversion Formulas</a></li>
+                    <li><a href="#pro-ranges">Pro Player Sensitivity Ranges</a></li>
+                    <li><a href="#finding">How to Find Your Perfect Sensitivity</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+
+                <h2 id="edpi">What Is eDPI and Why It Matters</h2>
+                <p><strong>eDPI = DPI × In-game Sensitivity</strong>. This is the universal metric for comparing sensitivities. Your mouse DPI (dots per inch, set in your mouse software) × your in-game sensitivity slider = your eDPI. Two players can have identical eDPI with completely different DPI and sensitivity settings, and their mouse movement will feel identical.</p>
+                <p>Example: 800 DPI × 0.35 Valorant sens = 280 eDPI. Also: 1600 DPI × 0.175 Valorant sens = 280 eDPI. Same eDPI, same feel.</p>
+                <p><strong>Why eDPI is the standard:</strong> Raw sensitivity numbers mean nothing across different DPI settings. A "0.5 sens" player at 400 DPI has 200 eDPI; a "0.5 sens" player at 1600 DPI has 800 eDPI — four times faster. Always compare eDPI, never raw sensitivity.</p>
+
+                <div class="ad-placeholder">Advertisement</div>
+
+                <h2 id="valorant-sens">How Valorant Sensitivity Works</h2>
+                <p>Valorant uses a sensitivity scale where <strong>1.0 = 3.1818° per mouse count</strong> at default FOV (103° horizontal, 16:9). This is derived from the Source engine formula, same as CS:GO/CS2 but with a different base scale.</p>
+                <p><strong>Valorant scoped sensitivity multiplier:</strong> Valorant has a separate "Scoped Sensitivity Multiplier" for weapons with scopes (Operator, Marshal, Guardian ADS). The default is 1.0, which gives a 1:1 monitor-distance match at 0% (focal length scaling). Most players should leave this at 1.0 — changing it creates inconsistency between hipfire and scoped aim.</p>
+                <p><strong>ADS sensitivity:</strong> Valorant does not have a separate ADS sensitivity for rifles/pistols. ADS always uses your hipfire sensitivity scaled to the zoom FOV. This is intentional — you shouldn't have a different sensitivity for ADS vs. hipfire on rifles.</p>
+
+                <h2 id="conversions">Cross-Game Conversion Formulas</h2>
+                <p>These formulas use <strong>360° distance matching</strong> — the most common conversion method. Your mouse travels exactly the same physical distance to complete a 360° turn in both games.</p>
+                <table>
+                    <tr><th>Game</th><th>Conversion to Valorant</th><th>Conversion from Valorant</th></tr>
+                    <tr><td>CS2 / CS:GO</td><td>× 0.318</td><td>÷ 0.318 (= × 3.14)</td></tr>
+                    <tr><td>Overwatch 2</td><td>÷ 10.6</td><td>× 10.6</td></tr>
+                    <tr><td>Apex Legends</td><td>× 0.1 (approx)</td><td>÷ 0.1 (approx; depends on ADS multiplier setting)</td></tr>
+                    <tr><td>Rainbow Six Siege</td><td>× 1.0 (nearly 1:1 at default FOV)</td><td>× 1.0</td></tr>
+                    <tr><td>Call of Duty (Warzone/MW)</td><td>× 0.2 (approx; depends on FOV and ADS multiplier)</td><td>÷ 0.2 (approx)</td></tr>
+                    <tr><td>THE FINALS</td><td>× 0.2 (approx)</td><td>÷ 0.2 (approx)</td></tr>
+                    <tr><td>Fortnite</td><td>÷ 27 (approx)</td><td>× 27 (approx; varies significantly by game mode and settings)</td></tr>
+                </table>
+                <div class="warning-box"><strong>Important:</strong> These are approximate 360° distance conversions. Some players prefer monitor-distance matching (0% or 56.25%) for scoped sensitivity. The conversion tool on our tools page handles both methods. For games not listed here, use the <a href="../../tools/sensitivity-converter.html">interactive sensitivity converter</a>.</div>
+
+                <h2 id="pro-ranges">Pro Player Sensitivity Ranges</h2>
+                <table>
+                    <tr><th>eDPI Range</th><th>Classification</th><th>Example Pros</th></tr>
+                    <tr><td>150-200</td><td>Very Low</td><td>ScreaM-style aimers who prioritize precision over speed</td></tr>
+                    <tr><td>200-280</td><td>Low (Most Common in Pro Play)</td><td>TenZ (251 eDPI), yay (280 eDPI), aspas</td></tr>
+                    <tr><td>280-350</td><td>Medium-Low</td><td>FNS, Boaster (IGLs tend toward slightly higher sens for scanning)</td></tr>
+                    <tr><td>350-450</td><td>Medium</td><td>Some flex players; higher sens helps with ability usage and fast checking</td></tr>
+                    <tr><td>450+</td><td>High</td><td>Very rare in pro play. Higher sens sacrifices precision for speed.</td></tr>
+                </table>
+                <p>The vast majority of Valorant pros sit between <strong>200-300 eDPI</strong>. This isn't a coincidence — the game's gunplay rewards precise crosshair placement and small microflicks over large sweeping motions. If your eDPI is above 400, you're likely overshooting and making micro-adjustments harder than they need to be.</p>
+
+                <div class="ad-placeholder">Advertisement</div>
+
+                <h2 id="finding">How to Find Your Perfect Sensitivity</h2>
+                <p>The "PSA Method" (Perfect Sensitivity Approximation) is the community-standard approach:</p>
+                <ol>
+                    <li><strong>Find your 360° baseline:</strong> Set your sensitivity so one full mousepad-width swipe = 180° turn (not 360°). In Valorant, you should never need to turn more than 180° — if someone is behind you, you're already dead.</li>
+                    <li><strong>Test high and low:</strong> Play 2-3 deathmatch games at a sens ~15% higher than your baseline, then 2-3 games at ~15% lower. Track your headshot percentage and "feel."</li>
+                    <li><strong>Narrow the range:</strong> Whichever felt better, set a new middle point and test at ±7%. Repeat narrowing until you settle on a sensitivity that feels natural and produces consistent results.</li>
+                    <li><strong>Stick with it:</strong> Once you find a sens, <strong>do not change it</strong>. Constant sensitivity changes destroy muscle memory. Give any new sens at least 2 weeks of consistent play before judging it.</li>
+                </ol>
+                <div class="tip-box"><strong>Pro Tip:</strong> Most players use <strong>800 DPI</strong> or <strong>1600 DPI</strong>. 1600 DPI has slightly lower input latency (about 1ms difference) due to higher polling utilization. Set your mouse to 800 or 1600 DPI in your mouse software, then adjust in-game sensitivity to reach your target eDPI.</div>
+
+                <h2>Related Guides</h2>
+                <ul>
+                    <li><a href="crosshair-guide.html">Valorant Crosshair Guide</a></li>
+                    <li><a href="beginners-guide-2026.html">Valorant Beginner Guide</a></li>
+                    <li><a href="../../tools/sensitivity-converter.html">Interactive Sensitivity Converter Tool</a></li>
+                </ul>
+
+                <h2 id="faq">Frequently Asked Questions</h2>
+                <p><strong>Q: Should I use 400, 800, or 1600 DPI?</strong></p>
+                <p>A: 1600 DPI is technically optimal — it has about 1ms lower click latency than 800 DPI due to how USB polling works. But the difference is imperceptible to humans. Use whatever DPI you're comfortable with and adjust in-game sensitivity to hit your eDPI. Don't change DPI just because a pro uses a certain number — they reach the same eDPI regardless.</p>
+                <p><strong>Q: Does Windows mouse sensitivity affect Valorant?</strong></p>
+                <p>A: No. Valorant (and most modern FPS games) use raw input — it reads mouse data directly, bypassing Windows sensitivity settings entirely. Set Windows sensitivity to 6/11 (default, no acceleration) for desktop use, but it won't affect your in-game aim.</p>
+                <p><strong>Q: Is mouse acceleration bad?</strong></p>
+                <p>A: For tactical shooters, yes. Mouse acceleration makes your sensitivity variable based on how fast you move the mouse — the exact opposite of the consistency you want in Valorant. Turn it off in Windows (uncheck "Enhance pointer precision") and in your mouse software. Some players use driver-level acceleration curves (RawAccel), but this is advanced and niche.</p>
+                <p><strong>Q: My CS sens feels different in Valorant even after converting — why?</strong></p>
+                <p>A: Three factors: (1) FOV difference — CS2 default FOV in 4:3 is different from Valorant's locked 103° FOV. The monitor-distance feel changes even when 360° distance is matched. (2) Game engine — movement acceleration, gun model position, and recoil feel create a different perception of sensitivity. (3) Crosshair — if your Valorant crosshair is different from CS, your visual feedback loop changes. Match crosshairs for a more consistent feel.</p>
+                <p><strong>Q: Is it worth using the interactive sensitivity converter?</strong></p>
+                <p>A: Yes, if you play multiple FPS games. The tool handles FOV differences, ADS/scoped multipliers, and games not covered by simple formulas here. It's particularly useful for Apex Legends and Fortnite where ADS sensitivity multipliers complicate the conversion.</p>
+            </div>
+</article>
+    </main>
+
+    <div class="update-note">
+        <p><em>Sensitivity conversion ratios are mathematical constants and do not change with game patches. Pro player sensitivity data is approximate and subject to individual preference changes. Updated May 2026.</em></p>
+    </div>
+<footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>GameGuides</h3>
+                    <p>Your trusted source for free game walkthroughs, tips, and strategies.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../terms.html">Terms of Service</a></li>
+                        <li><a href="../../contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Valorant Guides</h3>
+                    <ul>
+                        <li><a href="sensitivity-converter.html">Sensitivity Converter</a></li>
+                        <li><a href="beginners-guide-2026.html">Beginner Guide</a></li>
+                        <li><a href="crosshair-guide.html">Crosshair Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 GameGuides. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Sensitivity Converter — GameGuides</title>
+    <meta name="description" content="Convert your Valorant sensitivity when changing mouse DPI. Simple calculator using the standard formula.">
+    <link rel="canonical" href="https://gameguides-4t7.pages.dev/tools/valorant-sensitivity-converter.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tool-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 2.5rem;
+        }
+        .tool-container h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.4px;
+            margin-bottom: 0.4rem;
+        }
+        .tool-container .tool-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 0;
+        }
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.45rem;
+        }
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .form-group .input-hint {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+        .form-group .input-hint.error {
+            color: var(--red);
+        }
+        .btn-calc {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 650;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-calc:hover { background: var(--accent-hover); }
+        .btn-calc:active { transform: scale(0.98); }
+
+        .result-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.4rem 1.6rem;
+            margin-top: 1.2rem;
+            display: none;
+            text-align: center;
+        }
+        .result-box.visible { display: block; }
+        .result-box .result-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+        .result-box .result-value {
+            font-size: 2.6rem;
+            font-weight: 750;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .result-box .result-detail {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+        .result-box .result-formula {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border-subtle);
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+        }
+        .info-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.2rem;
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+        .info-box strong { color: var(--accent); }
+        @media (max-width: 480px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Valorant Sensitivity Converter — GameGuides">
+    <meta property="og:description" content="Convert your Valorant sensitivity when changing mouse DPI. Simple calculator using the standard formula.">
+    <meta property="og:url" content="https://gameguides-4t7.pages.dev/tools/valorant-sensitivity-converter.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+    <meta property="og:site_name" content="GameGuides">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valorant Sensitivity Converter — GameGuides">
+    <meta name="twitter:description" content="Convert your Valorant sensitivity when changing mouse DPI. Simple calculator using the standard formula.">
+    <meta name="twitter:image" content="https://gameguides-4t7.pages.dev/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Valorant Sensitivity Converter — GameGuides",
+  "description": "Convert your Valorant sensitivity when changing mouse DPI. Simple calculator using the standard formula.",
+  "url": "https://gameguides-4t7.pages.dev/tools/valorant-sensitivity-converter.html",
+  "datePublished": "May 2026",
+  "dateModified": "May 2026",
+  "author": {
+    "@type": "Organization",
+    "name": "GameGuides"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GameGuides",
+    "url": "https://gameguides-4t7.pages.dev"
+  }
+}
+</script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="nav-logo">GameGuides</a>
+            <div class="nav-links">
+                <a href="../minecraft/">Minecraft</a>
+                <a href="../valorant/">Valorant</a>
+                <a href="../genshin-impact/">Genshin Impact</a>
+                <a href="../about.html">About</a>
+            </div>
+        </nav>
+    </header>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="https://gameguides-4t7.pages.dev/">Home</a></li>
+<li><a href="https://gameguides-4t7.pages.dev/tools/">Tools Guides</a></li>
+<li aria-current="page">Valorant Sensitivity Converter</li>
+</ol>
+</nav>
+
+    <main>
+        <div class="tool-container">
+            <h1>Valorant Sensitivity Converter</h1>
+            <p class="tool-subtitle">Convert your in-game sensitivity when switching mouse DPI settings.</p>
+
+            <div class="info-box">
+                <strong>How it works:</strong> eDPI (effective DPI) = in-game sensitivity &times; mouse DPI. When you change your mouse DPI, adjust sensitivity to keep the same eDPI and maintain muscle memory. The formula is: <code>newSens = oldSens &times; oldDPI / newDPI</code>
+            </div>
+
+            <div class="tool-card">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="old-sens">Current In-Game Sensitivity</label>
+                        <input type="number" id="old-sens" step="0.001" placeholder="e.g. 0.47">
+                        <div class="input-hint">Your current Valorant sensitivity</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="old-dpi">Current Mouse DPI</label>
+                        <input type="number" id="old-dpi" step="50" placeholder="e.g. 800">
+                        <div class="input-hint">Your current mouse DPI setting</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-dpi">New Mouse DPI</label>
+                        <input type="number" id="new-dpi" step="50" placeholder="e.g. 1600">
+                        <div class="input-hint">The DPI you want to switch to</div>
+                    </div>
+                    <div class="form-group" style="display:flex;align-items:flex-end;">
+                        <button id="calc-btn" class="btn-calc">Convert Sensitivity</button>
+                    </div>
+                </div>
+
+                <div id="result" class="result-box">
+                    <div class="result-label">New In-Game Sensitivity</div>
+                    <div class="result-value" id="new-sens">—</div>
+                    <div class="result-detail" id="result-detail"></div>
+                    <div class="result-formula" id="result-formula"></div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="update-note">
+        <p><em>This guide is updated when major game changes affect the strategy. If you notice outdated information, please <a href="../contact.html">contact us</a>.</em></p>
+    </div>
+</main>
+
+    <div class="affiliate-disclosure">
+        This website may earn commissions from qualifying purchases or partner links. This does not affect our editorial content.
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="../about.html">About</a>
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms of Service</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <p class="footer-copy">
+<p class="footer-copy">&copy; 2026 GameGuides. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var oldSensInput = document.getElementById('old-sens');
+            var oldDpiInput = document.getElementById('old-dpi');
+            var newDpiInput = document.getElementById('new-dpi');
+            var calcBtn = document.getElementById('calc-btn');
+            var resultBox = document.getElementById('result');
+
+            function getVal(el) {
+                var v = parseFloat(el.value);
+                return isNaN(v) ? null : v;
+            }
+
+            function validateAll() {
+                var ok = true;
+                [oldSensInput, oldDpiInput, newDpiInput].forEach(function(el) {
+                    var hint = el.nextElementSibling;
+                    if (hint && hint.classList.contains('input-hint')) {
+                        // reset non-error hints handled elsewhere
+                    }
+                });
+
+                var sens = getVal(oldSensInput);
+                if (sens === null || oldSensInput.value.trim() === '') {
+                    ok = false;
+                } else if (sens <= 0) {
+                    ok = false;
+                }
+
+                var oldDpi = getVal(oldDpiInput);
+                if (oldDpi === null || oldDpiInput.value.trim() === '') {
+                    ok = false;
+                } else if (oldDpi <= 0) {
+                    ok = false;
+                }
+
+                var newDpi = getVal(newDpiInput);
+                if (newDpi === null || newDpiInput.value.trim() === '') {
+                    ok = false;
+                } else if (newDpi <= 0) {
+                    ok = false;
+                }
+
+                return ok ? { sens: sens, oldDpi: oldDpi, newDpi: newDpi } : null;
+            }
+
+            function calculate() {
+                var vals = validateAll();
+                if (!vals) {
+                    resultBox.classList.remove('visible');
+                    return;
+                }
+
+                var newSens = vals.sens * vals.oldDpi / vals.newDpi;
+                var oldEdpi = vals.sens * vals.oldDpi;
+                var newEdpi = newSens * vals.newDpi;
+
+                document.getElementById('new-sens').textContent = newSens.toFixed(3);
+
+                var detailParts = [];
+                detailParts.push('Old eDPI: <strong>' + Math.round(oldEdpi) + '</strong> (' + vals.sens.toFixed(3) + ' &times; ' + vals.oldDpi + ')');
+                detailParts.push('New eDPI: <strong>' + Math.round(newEdpi) + '</strong> (' + newSens.toFixed(3) + ' &times; ' + vals.newDpi + ')');
+                if (Math.abs(oldEdpi - newEdpi) < 0.5) {
+                    detailParts.push('eDPI preserved exactly. Your muscle memory should carry over seamlessly.');
+                }
+                document.getElementById('result-detail').innerHTML = detailParts.join('<br>');
+
+                document.getElementById('result-formula').textContent =
+                    newSens.toFixed(3) + ' = ' + vals.sens.toFixed(3) + ' \u00d7 ' + vals.oldDpi + ' / ' + vals.newDpi;
+
+                resultBox.classList.add('visible');
+            }
+
+            calcBtn.addEventListener('click', calculate);
+
+            var inputs = [oldSensInput, oldDpiInput, newDpiInput];
+            inputs.forEach(function(el) {
+                el.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') calculate();
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
